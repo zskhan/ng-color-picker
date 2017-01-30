@@ -1,58 +1,90 @@
-## MediaPro Shared Components ##
+# angular2-color-picker
+Angular 2 Color Picker Directive/Component with no dependencies required.<br />
+This is a Color Picker Directive/Component for Angular 2.
 
-### Pre requisites ###
-
-* NodeJS > v 4.4.2
-
-### About ###
-
-Shared components used across MediaPro Angular 2 stack of applications
-
-### Installation ###
-
+# Installation
 ```bash
-$ npm install @mediapro/shared --save
+npm i --save ng-color-picker
 ```
-** Make sure you have required peerDependencies installed **
 
-### Import ###
+# Usage
+* Use it in your HTML elements, for example:
+```html
+<input [(colorPicker)]="color" [style.background]="color" [value]="color"/>
+```
+* Or:
+```html
+<input [colorPicker]="color" (colorPickerChange)="color=$event" [style.background]="color" [value]="color"/>
+```
 
-```typescript
-import { NgModule } from '@angular/core';
-import { MpSharedModule } from ng-color-picker;
+* Add ColorPickerModule in your app.module.ts:
+```javascript
+import {ColorPickerModule} from 'ng-color-picker';
 
-...
 @NgModule({
-  ...
-  imports: [
     ...
-    MpSharedModule,
-    ...
-  ]
-  ...
+    imports: [ColorPickerModule]
 })
-...
+
+```
+* Set color the variable. You can use ColorPickerService in your component if you want extra functions.
+```javascript
+import {Component} from '@angular/core';
+import {ColorPickerService} from 'ng-color-picker';
+
+@Component({
+    selector: 'my-app',
+    templateUrl: 'app/demo.html'
+})
+
+export class AppComponent {
+    private color: string = "#127bdc";
+    constructor(private cpService: ColorPickerService) {
+    }
+}
 ```
 
-### Components ###
-1) [Date Picker](src/date-picker/README.md)
-2) [Left Side Panel](src/left-side-panel/README.md)
-3) [Select Box](src/select-box/README.md)
-4) [Sort Button](src/sort-button/README.md)
-5) [Bread Crumbs](src/breadcrumbs/README.md)
-6) [Header](src/header/README.md)
-7) [Navigation Tabs](src/navigation-tabs/README.md)
-8) [Pagination](src/pagination/README.md)
+#Build
+```bash
+git clone https://github.com/zskhan/ng-color-picker
+cd ng-color-picker
+npm i && npm run peerinstall
+npm run build
+```
 
-### Services
-1) [Auth Service](src/auth/README.md)
+#Options
+Default option is the first item.
+```html
+[cpOutputFormat]="'hex', 'rgba', 'hsla'"
+[cpPosition]="'right', 'left', 'top', 'bottom'"
+[cpPositionOffset]="'0%'"
+[cpPositionRelativeToArrow]="false, true"
+[cpWidth]="'230px'"
+[cpHeight]="'auto'"
+[cpSaveClickOutside]="true, false"
+[cpOKButton]="false, true"
+[cpOKButtonClass]="''"
+[cpOKButtonText]="'OK'"
+[cpCancelButton]="false, true"
+[cpCancelButtonClass]="''"
+[cpCancelButtonText]="'Cancel'"
+[cpFallbackColor]="'#fff'"
+[cpPresetLabel]="'Preset colors'"
+[cpPresetColors]="[]", e.g: "['#fff', '#000']"
+[cpToggle] = "false, true"
+[cpIgnoredElements]="[]"
+[cpDialogDisplay]="'popup,' 'inline'"
+[cpAlphaChannel]="'hex6', 'hex8', 'disabled'"
+```
 
-### Set up ###
+#Extra content
+If you want to change precalculated images for color picker sliders, you can find a little script in this project:
+https://github.com/Alberplz/angular-colorpicker-directive
 
-* Clone repository
-* Install all `peerDependencies` i.e. `$ npm install @angular/core @angular/common ...`
-* Run `$ npm install`
-
-### Style guide ###
-
-* Make use of the [official Angular 2 Style Guide](https://angular.io/styleguide)
+#Tested in:
+* Chrome
+* Firefox
+* Microsoft Edge
+* Opera
+* Safari
+* Internet Explorer
