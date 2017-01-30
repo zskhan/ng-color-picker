@@ -50,7 +50,7 @@
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.21.0",
-    "jasmine-core": "^2.4.1",
+    "jasmine-core": "^2.3.0",
     "karma": "^0.13.22",
     "karma-jasmine": "^0.3.8",
     "karma-phantomjs-launcher": "^1.0.0",
@@ -65,19 +65,19 @@
     "webpack-merge": "^0.14.1"
   },
   "peerDependencies": {
-    "@angular/common": "2.4.1",
-    "@angular/compiler": "2.4.1",
-    "@angular/compiler-cli": "2.4.1",
-    "@angular/core": "2.4.1",
+    "@angular/common": "2.3.0",
+    "@angular/compiler": "2.3.0",
+    "@angular/compiler-cli": "2.3.0",
+    "@angular/core": "2.3.0",
     "@angular/router": "3.3.0",
-    "@angular/forms": "2.4.1",
-    "@angular/platform-browser": "2.4.1",
-    "@angular/platform-browser-dynamic": "2.4.1",
-    "@angular/platform-server": "2.4.1",
+    "@angular/forms": "2.3.0",
+    "@angular/platform-browser": "2.3.0",
+    "@angular/platform-browser-dynamic": "2.3.0",
+    "@angular/platform-server": "2.3.0",
     "sass-flex-mixin": "^1.0.3",
     "angular2-mdl": "^2.10.0",
     "rxjs": "^5.0.0-rc.4",
     "zone.js": "^0.7.2",
-    "typescript": "2.1.14"
+    "typescript": "2.0.10"
   }
 }

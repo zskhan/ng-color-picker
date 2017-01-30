@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ColorPickerService, Rgba } from '../lib';
 
 export class Cmyk {
@@ -57,7 +57,8 @@ export class Cmyk {
     margin-bottom: 15px;
 }
 `
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 

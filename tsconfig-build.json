@@ -3,11 +3,9 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": [ "es2015", "dom" ],
     "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "suppressImplicitAnyIndexErrors": true,
     "removeComments": false,
     "noImplicitAny": true,
     "declaration": true,
@@ -16,9 +14,6 @@
   },
   "files": [
     "./index.ts"
-  ],
-  "exclude": [
-    "node_modules"
   ],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true
