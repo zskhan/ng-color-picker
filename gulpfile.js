@@ -5,7 +5,6 @@ let gutil = require('gulp-util');
 let textSimple = require('gulp-text-simple');
 let sass = require('gulp-sass');
 let rename = require('gulp-rename');
-let image64 = require('@mohuk/gulp-image64')
 
 let BASE_PATH = path.join('./');
 let SRC_PATH = path.join(BASE_PATH, './src');
@@ -40,7 +39,6 @@ gulp.task('styles', () => {
 gulp.task('templates', () => {
   gutil.log(`watching ${PATHS.TEMPLATES}`);
   return gulp.src(PATHS.TEMPLATES)
-    .pipe(image64({lowerCaseAttributeNames: false}))
     .pipe(transform())
     .pipe(rename({
       extname: '.template.ts'
