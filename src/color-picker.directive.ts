@@ -28,9 +28,11 @@ export class ColorPickerDirective implements OnInit, OnChanges {
     @Input('cpCancelButton') cpCancelButton: boolean = false;
     @Input('cpCancelButtonClass') cpCancelButtonClass: string = 'cp-cancel-button-class';
     @Input('cpCancelButtonText') cpCancelButtonText: string = 'Cancel';
+    @Input('cpDisableHsla') cpDisableHsla: boolean = false;
     @Input('cpOKButton') cpOKButton: boolean = false;
     @Input('cpOKButtonClass') cpOKButtonClass: string = 'cp-ok-button-class';
     @Input('cpOKButtonText') cpOKButtonText: string = 'OK';
+    @Output('cpOKButtonClick') cpOKButtonClick = new EventEmitter<string>(true);
     @Input('cpFallbackColor') cpFallbackColor: string = '#fff';
     @Input('cpHeight') cpHeight: string = 'auto';
     @Input('cpWidth') cpWidth: string = '230px';
@@ -91,7 +93,7 @@ export class ColorPickerDirective implements OnInit, OnChanges {
                     this.cpPositionRelativeToArrow, this.cpOutputFormat, this.cpPresetLabel, this.cpPresetColors,
                     this.cpCancelButton, this.cpCancelButtonClass, this.cpCancelButtonText,
                     this.cpOKButton, this.cpOKButtonClass, this.cpOKButtonText, this.cpHeight, this.cpWidth,
-                    this.cpIgnoredElements, this.cpDialogDisplay, this.cpSaveClickOutside, this.cpAlphaChannel);
+                    this.cpIgnoredElements, this.cpDialogDisplay, this.cpSaveClickOutside, this.cpAlphaChannel, this.cpDisableHsla);
                   this.dialog = cmpRef.instance;
               });
         } else if (this.dialog) {
@@ -102,6 +104,10 @@ export class ColorPickerDirective implements OnInit, OnChanges {
     colorChanged(value: string, ignore: boolean = true) {
         this.ignoreChanges = ignore;
         this.colorPickerChange.emit(value)
+    }
+
+    okButtonClick(value: string){
+        this.cpOKButtonClick.emit(value);
     }
 
     changeInput(value: string) {
@@ -236,6 +242,7 @@ export class DialogComponent implements OnInit {
     private cpCancelButton: boolean;
     private cpCancelButtonClass: string;
     private cpCancelButtonText: string;
+    private cpDisableHsla: boolean;
     private cpOKButton: boolean;
     private cpOKButtonClass: string;
     private cpOKButtonText: string;
@@ -262,7 +269,7 @@ export class DialogComponent implements OnInit {
               cpCancelButton: boolean, cpCancelButtonClass: string, cpCancelButtonText: string,
               cpOKButton: boolean, cpOKButtonClass: string, cpOKButtonText: string,
               cpHeight: string, cpWidth: string,
-              cpIgnoredElements: any, cpDialogDisplay: string, cpSaveClickOutside: boolean, cpAlphaChannel: string) {
+              cpIgnoredElements: any, cpDialogDisplay: string, cpSaveClickOutside: boolean, cpAlphaChannel: string, cpDisableHsla:boolean) {
         this.directiveInstance = instance;
         this.initialColor = color;
         this.directiveElementRef = elementRef;
@@ -290,6 +297,7 @@ export class DialogComponent implements OnInit {
         }
         this.cpSaveClickOutside = cpSaveClickOutside;
         this.cpAlphaChannel = cpAlphaChannel;
+        this.cpDisableHsla = cpDisableHsla;
     }
 
     ngOnInit() {
@@ -329,6 +337,7 @@ export class DialogComponent implements OnInit {
 
     oKColor() {
         if (this.cpDialogDisplay === 'popup') {
+            this.directiveInstance.okButtonClick(this.outputColor);
             this.closeColorPicker();
         }
     }
@@ -478,7 +487,12 @@ export class DialogComponent implements OnInit {
     }
 
     formatPolicy(): number {
-        this.format = (this.format + 1) % 3;
+        if(this.cpDisableHsla){
+            this.format = (this.format + 1) % 2;
+        }
+        else {
+            this.format = (this.format + 1) % 3;
+        }
         if (this.format === 0 && this.hsva.a < 1 && this.cpAlphaChannel === 'hex6') {
             this.format++;
         }
