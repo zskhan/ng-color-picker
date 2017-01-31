@@ -229,14 +229,15 @@
         padding: 4px 8px;
 
         .box{
-            padding: 0 24px 8px 8px;
+            padding: 0 24px 0 8px;
             input{
                 min-width: 0;
                 flex: 1;
                 margin: 0;
                 float:left;
                 margin-right:8px;
-                border: #a9a9a9 solid 1px;
+                border: none;
+                border-bottom:1px solid #ccc;
                 padding: 1px;
 
                 &:last-child{
@@ -262,15 +263,19 @@
         padding: 4px 8px;
 
         .box{
-            padding: 0 24px 8px 8px;
+            padding: 0 24px 0 8px;
             input{
                 flex: 1 1 auto;
-                border: #a9a9a9 solid 1px;
+                border:none;
+                text-align:left;
+                border-bottom: 1px solid #ccc;
                 padding: 1px;
+                text-align: left;
+                text-transform: uppercase;
             }
             div{
                 flex: 1 1 auto;
-                text-align: center;
+                text-align: left;
                 color: #555;
                 float:left;
                 clear: left;
