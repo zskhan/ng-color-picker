@@ -79,7 +79,7 @@ Default option is the first item.
 
 #Extra content
 If you want to change precalculated images for color picker sliders, you can find a little script in this project:
-https://github.com/Alberplz/angular-colorpicker-directive
+https://github.com/zskhan/angular-colorpicker-directive
 
 #Tested in:
 * Chrome
