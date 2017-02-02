@@ -1,6 +1,5 @@
-# angular2-color-picker
+# Angular2 Color Picker
 Angular 2 Color Picker Directive/Component with no dependencies required.<br />
-This is a Color Picker Directive/Component for Angular 2.
 
 # Installation
 ```bash
@@ -76,10 +75,6 @@ Default option is the first item.
 [cpDialogDisplay]="'popup,' 'inline'"
 [cpAlphaChannel]="'hex6', 'hex8', 'disabled'"
 ```
-
-#Extra content
-If you want to change precalculated images for color picker sliders, you can find a little script in this project:
-https://github.com/zskhan/angular-colorpicker-directive
 
 #Tested in:
 * Chrome
