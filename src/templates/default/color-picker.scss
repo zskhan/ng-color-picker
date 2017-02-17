@@ -1,8 +1,8 @@
 /*
  * Styles for Color Picker
- * 
+ *
  * Alberto Pujante
- * 
+ *
  * @licence: http://opensource.org/licenses/MIT
  */
 .color-picker *{
@@ -24,12 +24,14 @@
     cursor: default;
     width: 230px;
     height: auto;
-    border:#777 solid 1px;
     left:30px;
     top:250px;
     position:absolute;
     z-index:1000;
     background-color: #fff;
+    box-shadow: 0 0 8px 0 rgba(123,135,147,0.38);
+    -wbkit-box-shadow: 0 0 8px 0 rgba(123,135,147,0.38);
+    -moz-box-shadow: 0 0 8px 0 rgba(123,135,147,0.38);
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -44,9 +46,12 @@
     }
 
     input{
-        text-align: center;
         font-size: 13px;
         height: 26px;
+        font-family: "Roboto", Arial;
+        font-size: 15px;
+        color: #464646;
+        border-bottom: 1px solid #d4d7db !important;
         &:invalid{
             box-shadow: none;
         }
@@ -199,6 +204,8 @@
         left: 8px;
         position:absolute;
         @include boder-radius(50%);
+        border: 3px solid #fff;
+        box-shadow: 0 0 6px 0 rgba(0,0,0,0.52);
     }
 
     .selected-color-background{
@@ -249,6 +256,10 @@
                 text-align: center;
                 color: #555;
                 margin-right:8px;
+                font-family: "Roboto", Arial;
+                font-size: 12px;
+                color: #8c8c8c;
+                text-align: left;
 
                 &:last-child{
                     margin-right: 0;
@@ -276,7 +287,7 @@
             div{
                 flex: 1 1 auto;
                 text-align: left;
-                color: #555;
+                color: #8c8c8c;
                 float:left;
                 clear: left;
             }
