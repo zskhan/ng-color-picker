@@ -1,6 +1,6 @@
 {
   "name": "ng-color-picker",
-  "version": "2.0.5-mp.0",
+  "version": "2.0.5-mp.1",
   "description": "Angular2 Color Picker",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
